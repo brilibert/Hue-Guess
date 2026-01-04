@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Value Guess Trainer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app" aria-label="Value Guess Trainer">
+    <header class="top">
+      <div class="title">
+        <h1>Value Guess</h1>
+        <p>Guess the grayscale value (1–10) of the color.</p>
+      </div>
+
+      <div class="stats" aria-label="Session stats">
+        <div class="stat"><span class="k">Rounds</span><span class="v" id="rounds">0</span></div>
+        <div class="stat"><span class="k">Avg off</span><span class="v" id="avgOff">–</span></div>
+        <div class="stat"><span class="k">Last off</span><span class="v" id="lastOff">–</span></div>
+      </div>
+    </header>
+
+    <section class="panel" aria-label="Color panel">
+      <div class="swatches">
+        <div class="swatchWrap">
+          <div class="swatchLabel">Color</div>
+          <div class="swatch" id="colorSwatch" role="img" aria-label="Color swatch"></div>
+        </div>
+
+        <div class="swatchWrap revealOnly" id="grayWrap" aria-hidden="true">
+          <div class="swatchLabel">Grayscale reveal</div>
+          <div class="swatch" id="graySwatch" role="img" aria-label="Grayscale swatch"></div>
+        </div>
+      </div>
+
+      <div class="controls" aria-label="Guess controls">
+        <div class="scale" aria-label="Value scale">
+          <div class="scaleLabel">
+            <span>Value</span>
+            <span class="hint">1 = darkest · 10 = lightest</span>
+          </div>
+
+          <div class="scaleBar" id="scaleBar" role="group" aria-label="Choose a value from 1 to 10">
+            <!-- buttons injected by JS -->
+          </div>
+
+          <div class="sliderRow" aria-label="Slider input">
+            <input id="slider" type="range" min="1" max="10" step="1" value="5" />
+            <div class="sliderValue">Selected: <span id="sliderVal">5</span></div>
+          </div>
+        </div>
+
+        <div class="actions" aria-label="Actions">
+          <button class="primary" id="submitBtn">Submit guess</button>
+          <button class="secondary revealOnly" id="nextBtn" aria-hidden="true">Next</button>
+          <button class="ghost" id="resetStatsBtn" title="Clears stats saved in this browser">Reset stats</button>
+        </div>
+
+        <div class="result" id="result" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="kbd">
+        <span class="pill">1–10</span> pick value · <span class="pill">Enter</span> submit/next · <span class="pill">R</span> new color
+      </div>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
