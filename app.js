@@ -113,12 +113,12 @@ function syncStats(){
     : "–";
 }
 
-/* value logic: 1 = white, 10 = black */
 function luminanceToBin(L){
   // L = 1 (white) → bin 1
   // L = 0 (black) → bin 10
   return 1 + Math.round((1 - clamp01(L)) * 9);
 }
+
 
 /* color generation */
 function generateColorForBin(targetBin){
