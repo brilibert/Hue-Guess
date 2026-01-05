@@ -1,5 +1,5 @@
 :root{
-  --bg: #7a7a7a;          /* neutral mid-gray background */
+  --bg: #7a7a7a;
   --panel: rgba(255,255,255,0.10);
   --panel2: rgba(255,255,255,0.14);
   --text: rgba(255,255,255,0.92);
@@ -31,44 +31,24 @@ body{
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 14px;
-  align-items: start;
   margin-bottom: 14px;
 }
 
-.title h1{
-  margin: 0;
-  font-size: 22px;
-  letter-spacing: 0.2px;
-}
-.title p{
-  margin: 6px 0 0;
-  color: var(--muted);
-  font-size: 14px;
-}
+.title h1{ margin: 0; font-size: 22px; }
+.title p{ margin: 6px 0 0; color: var(--muted); font-size: 14px; }
 
 .stats{
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  justify-content: flex-end;
 }
+
 .stat{
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 10px 12px;
-  min-width: 100px;
-  box-shadow: 0 10px 24px var(--shadow);
-}
-.stat .k{
-  display: block;
-  font-size: 12px;
-  color: var(--muted2);
-}
-.stat .v{
-  display: block;
-  font-size: 18px;
-  margin-top: 2px;
+  min-width: 90px;
 }
 
 .panel{
@@ -76,9 +56,9 @@ body{
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 14px;
-  box-shadow: 0 18px 34px var(--shadow);
 }
 
+/* --- swatches --- */
 .swatches{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -88,26 +68,26 @@ body{
 
 .swatchWrap{
   background: var(--panel2);
-  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 12px;
 }
+
 .swatchLabel{
-  color: var(--muted2);
   font-size: 12px;
-  margin-bottom: 10px;
+  color: var(--muted2);
+  margin-bottom: 8px;
 }
+
 .swatch{
   width: 100%;
   height: 260px;
   border-radius: 14px;
-  border: 1px solid rgba(0,0,0,0.18);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.10);
+  border: 1px solid rgba(0,0,0,0.2);
 }
 
+/* --- controls --- */
 .controls{
   background: var(--panel2);
-  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 12px;
 }
@@ -115,144 +95,92 @@ body{
 .scaleLabel{
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-.scaleLabel .hint{
-  color: var(--muted2);
-  font-size: 12px;
+  margin-bottom: 6px;
 }
 
+.scaleLabel .hint{
+  font-size: 12px;
+  color: var(--muted2);
+}
+
+/* stacked buttons */
 .scaleBar{
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 8px;
+  margin-bottom: 10px;
 }
 
 .scaleBtn{
-  appearance: none;
+  height: 44px;
+  border-radius: 10px;
   border: 1px solid var(--border);
   background: var(--btn);
   color: var(--text);
-  border-radius: 12px;
-  height: 48px;
-  font-size: 16px;
-  font-weight: 650;
+  font-weight: 700;
   cursor: pointer;
-  user-select: none;
-  touch-action: manipulation;
 }
-.scaleBtn:hover{ background: var(--btnHover); }
-.scaleBtn:active{ background: var(--btnActive); transform: translateY(1px); }
 
 .scaleBtn.selected{
-  outline: 2px solid rgba(255,255,255,0.55);
-  background: rgba(255,255,255,0.20);
+  outline: 2px solid rgba(255,255,255,0.6);
 }
+
 .scaleBtn.correct{
-  outline: 2px solid rgba(255,255,255,0.90);
-  background: rgba(255,255,255,0.30);
+  background: rgba(255,255,255,0.32);
 }
+
 .scaleBtn.wrong{
   outline: 2px solid rgba(0,0,0,0.35);
 }
 
 .sliderRow{
   display: flex;
-  gap: 12px;
   align-items: center;
-  margin-top: 12px;
-  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
 }
+
 #slider{
-  width: min(520px, 100%);
-  height: 44px;
-}
-.sliderValue{
-  color: var(--muted);
-  font-size: 14px;
+  flex: 1;
 }
 
 .actions{
   display: flex;
   gap: 10px;
-  margin-top: 12px;
   flex-wrap: wrap;
 }
+
 button{
   border-radius: 12px;
   border: 1px solid var(--border);
-  padding: 12px 14px;
-  font-size: 15px;
+  padding: 10px 14px;
   cursor: pointer;
-  touch-action: manipulation;
 }
-button.primary{
+
+.primary{
   background: rgba(255,255,255,0.24);
-  color: var(--text);
   font-weight: 700;
 }
-button.secondary{
+
+.secondary{
   background: rgba(255,255,255,0.14);
-  color: var(--text);
-  font-weight: 650;
 }
-button.ghost{
+
+.ghost{
   background: transparent;
   color: var(--muted);
-}
-button:disabled{
-  opacity: 0.55;
-  cursor: not-allowed;
 }
 
 .result{
   margin-top: 10px;
-  min-height: 24px;
-  color: var(--text);
   font-size: 15px;
 }
-.result .subtle{ color: var(--muted); }
 
-.footer{
-  margin-top: 12px;
-  color: var(--muted2);
-  font-size: 12px;
-}
-.kbd .pill{
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.08);
-  color: var(--muted);
-}
+.revealOnly{ display: none; }
+.revealed .revealOnly{ display: block; }
 
-/* reveal toggles */
-.revealOnly{
-  display: none;
-}
-.revealed .revealOnly{
-  display: block;
-}
-
-/* mobile */
-@media (max-width: 760px){
-  .top{
-    grid-template-columns: 1fr;
-  }
-  .swatches{
-    grid-template-columns: 1fr;
-  }
-  .swatch{
-    height: 240px;
-  }
-  .scaleBar{
-    gap: 6px;
-  }
-  .scaleBtn{
-    height: 46px;
-    border-radius: 10px;
-  }
+/* mobile tweaks */
+@media (max-width: 720px){
+  .top{ grid-template-columns: 1fr; }
+  .swatch{ height: 220px; }
 }
