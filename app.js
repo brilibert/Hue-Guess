@@ -14,6 +14,7 @@ const resultEl    = document.getElementById("result");
 const roundsEl    = document.getElementById("rounds");
 const avgOffEl    = document.getElementById("avgOff");
 const lastOffEl   = document.getElementById("lastOff");
+const resetStatsBtn = document.getElementById("resetStatsBtn");
 
 const appRoot = document.querySelector(".app");
 
@@ -44,6 +45,11 @@ function buildScaleButtons(){
     scaleBar.appendChild(b);
   }
 }
+resetStatsBtn.addEventListener("click", () => {
+  stats = { rounds: 0, totalOff: 0, lastOff: null };
+  saveStats(stats);
+  syncStats();
+});
 
 function setGuess(v){
   selectedGuess = v;
@@ -250,4 +256,5 @@ function saveStats(s){
     localStorage.setItem(STATS_KEY, JSON.stringify(s));
   } catch {}
 }
+
 
